@@ -1,6 +1,6 @@
 {
   "name": "dsh-qq-mail-notify",
-  "version": "1.2.16",
+  "version": "1.2.17",
   "description": "工作结束 QQ 邮箱通知：每轮工作真正停下后，用 SMTP 把会话摘要发到 QQ 邮箱。Mailbox notification for DeepSeek Harness — sends a batched session digest via SMTP once work actually stops.",
   "type": "module",
   "main": "lib/index.js",
