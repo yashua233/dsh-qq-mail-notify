@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Work-End QQ Mail Notify",
+    "description": "Sends a session summary over SMTP to a QQ Mail address once the agent's work actually stops, plus a progress mail when a single turn runs unusually long."
+  }
+}

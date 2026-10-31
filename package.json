@@ -1,0 +1,74 @@
+{
+  "name": "dsh-qq-mail-notify",
+  "version": "1.2.16",
+  "description": "工作结束 QQ 邮箱通知：每轮工作真正停下后，用 SMTP 把会话摘要发到 QQ 邮箱。Mailbox notification for DeepSeek Harness — sends a batched session digest via SMTP once work actually stops.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "scripts",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
+  ],
+  "scripts": {
+    "test": "node scripts/selfcheck.mjs",
+    "probe": "node scripts/probe-smtp.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "notification",
+    "smtp",
+    "qq-mail",
+    "email",
+    "agent",
+    "automation"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    },
+    "compatibility": {
+      "dsh": "0.2.1-rc.5"
+    }
+  },
+  "dshTarget": "0.2.1-rc.5",
+  "license": "MIT",
+  "author": {
+    "name": "yashua233"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashua233/dsh-qq-mail-notify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yashua233/dsh-qq-mail-notify/issues"
+  },
+  "homepage": "https://github.com/yashua233/dsh-qq-mail-notify#readme"
+}

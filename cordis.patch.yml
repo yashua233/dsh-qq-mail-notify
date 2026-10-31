@@ -1,0 +1,10 @@
+# dsh-qq-mail-notify bundle patch
+#
+# 只插入一行，不带 config：所有可调参数都有内置默认值，改配置走
+#   qq_mail_notify action=configure ...
+# 写入 $DSH_HOME/qq-mail-notify.json 后立刻生效。这里若写了非空 config，
+# 它的优先级高于那个文件，工具改配置就不会生效了——除非你确实想把
+# 某个值钉死。
+- insert:
+    - id: qq-mail-notify
+      name: 'dsh-qq-mail-notify'
