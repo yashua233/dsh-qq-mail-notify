@@ -13,7 +13,7 @@
 **从 GitHub**
 
 ```bash
-dsh plugin --profile desktop add github:<owner>/dsh-qq-mail-notify
+dsh plugin --profile desktop add github:yashua233/dsh-qq-mail-notify
 ```
 
 **本地目录（开发或自己改的时候）**
@@ -22,7 +22,7 @@ dsh plugin --profile desktop add github:<owner>/dsh-qq-mail-notify
 dsh plugin --profile desktop add link:/path/to/dsh-qq-mail-notify
 ```
 
-**从 npm（若已发布）**
+**从 npm（已发布，命令最短）**
 
 ```bash
 dsh plugin --profile desktop add dsh-qq-mail-notify
