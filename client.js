@@ -570,8 +570,15 @@ window.__ModuleLoader__.load({
     return {
       inject: ['slots', 'locale'],
       apply(ctx) {
+        // 2026-11-04（宿主升级后加的降级）：设置页靠 ctx.slots 往槽位里塞 UI。
+        //   宿主改版时 slots 有可能没有或改名，裸调就是整块设置页白屏、连报错都看不到。
+        //   缺了就安静退出：命令和后台逻辑照常，只是设置页这一节不显示。
+        if (!ctx || !ctx.slots || typeof ctx.slots.inject !== 'function') {
+          try { console.warn('[dsh-qq-mail-notify] 客户端没有 slots —— 设置页这一节不显示（命令照常可用）') } catch {}
+          return;
+        }
         // 字典注册：语言切换由宿主统一管理，这里只提供两种语言的内容。
-        if (ctx.locale && typeof ctx.locale.register === 'function') {
+        if (ctx.locale && typeof ctx.locale.register === 'function' && typeof ctx.effect === 'function') {
           ctx.effect(() => ctx.locale.register(NS, DICT), 'dsh-qq-mail-notify: dictionaries');
         }
         const t = ctx.locale && typeof ctx.locale.bind === 'function' ? ctx.locale.bind(NS) : fallback;
